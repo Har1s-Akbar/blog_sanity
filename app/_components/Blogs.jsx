@@ -8,36 +8,37 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { urlFor } from '@/lib/builder'
 import React from 'react'
 import Image from 'next/image'
 
 function Blogs({data}) {
-    console.log(data.map((item)=>{return item.author}))
+    // console.log(data.map((item)=>{return item.author}))
   return (
-    <main className='grid grid-cols-3 m-auto items-center justify-center w-11/12'>
+    <main className=' m-auto items-center justify-center w-10/12'>
       <h1 className="col-span-3 text-center text-4xl my-10">Blogs</h1>
-        {data.map((item)=>{
-          return <Card className='w-10/12'>
+      {data.map((item)=>{
+          return <Card className='w-7/12 my-5'>
           <CardHeader>
-            <Image src={urlFor(item.mainImage).url()} width={600} alt={item.title} height={600} className="rounded-lg my-3 drop-shadow"/>
-            <CardTitle>{item.title}</CardTitle>
-            <CardDescription>Card Description</CardDescription>
+            <div className="flex my-2 items-center">
+            <Avatar className='w-5 h-5'>
+              <AvatarImage src={urlFor(item.author.image).url()} />
+              <AvatarFallback>{item.author.title}</AvatarFallback>
+            </Avatar>
+            <p className="text-sm mx-2">{item.author.name}</p>
+            <p className="text-sm mx-2 opacity-80 italic">{new Date(item.publishedAt).toDateString()}</p>
+            </div>
+            <CardTitle className='text-2xl'>{item.title}</CardTitle>
+            <CardDescription>{item.description}</CardDescription>
           </CardHeader>
           <CardContent>
-            <p>Card Content</p>
+            <Image src={urlFor(item.mainImage).url()} width={200} alt={item.title} height={200} className="rounded-lg my-3 drop-shadow"/>
           </CardContent>
           <CardFooter>
-          {/* <Badge variant="outline">{item.categories.map((itm)=> {return itm})}</Badge> */}
+          <Badge variant="outline">{item.category.title}</Badge>
           </CardFooter>
         </Card>
-            // return <div className=''>
-            //     <Image width={700} alt={item.title} height={500} src={urlFor(item.mainImage).url()} />
-            //     <h1>{item.title}</h1>
-            //     <h1></h1>
-            //     {/* <Image src={urlFor(item.mainImage.asset._ref)} width={1400} height={968} alt={item.title}/> */}
-            //     {/* <img src={urlFor(item.mainImage)} alt="" /> */}
-            // </div>
         })}
     </main>
   )
