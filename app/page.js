@@ -20,12 +20,11 @@ const tagData = async()=>{
 export default async function Home() {
   const data = await blogData()
   const dataTag = await tagData()
+  console.log(data)
   return (
     <main className="flex items-center justify-between w-11/12 m-auto">
-      {/* <div className="flex w-full"> */}
         <Blogs data={data}/>
         <Separator className='w-0.5 opacity-70 min-h-screen'/>
-      {/* </div> */}
       <div className="w-3/12 flex flex-col items-center justify-center">
         <Premium/>
         <Tags data={dataTag}/>

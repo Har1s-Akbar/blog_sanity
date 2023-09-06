@@ -2,13 +2,12 @@ import React from 'react'
 
 function Premium() {
   return (
-    <main className='bg-white border-2 rounded border-secondary w-full h-56 bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg'>
-        <div className='flex flex-col items-center justify-center w-11/12 mt-14 m-auto'>
+    <main className='bg-[url("https://images.unsplash.com/photo-1536854150886-354a3b64b7d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2075&q=80")] bg-cover rounded-lg w-full h-56 backdrop-blur-lg rounded drop-shadow-lg my-10'>
+        <div className='flex flex-col items-center justify-center w-11/12 mt-10 m-auto'>
             <div className='flex flex-col items-center justify-center'>
-                <h1 className='text-2xl font-semibold text-center'>Become Our premium member</h1>
-                <h1 className='text-xl font-bold text-center'>Join Us!!</h1>
+                <h1 className='text-secondary text-2xl font-semibold text-center'>Become our premium member</h1>
             </div>
-            <button className='border-2 py-2 w-1/3 rounded-lg bg-foreground text-secondary my-2'>Join</button>
+            <button className='py-1 w-1/3 rounded-lg font-semibold bg-secondary text-foreground my-4 hover:bg-foreground hover:text-secondary transition ease-in-out'>Join Us</button>
         </div>
     </main>
   )
