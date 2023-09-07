@@ -20,7 +20,6 @@ const tagData = async()=>{
 export default async function Home() {
   const data = await blogData()
   const dataTag = await tagData()
-  console.log(data)
   return (
     <main className="flex items-center justify-between w-11/12 m-auto">
         <Blogs data={data}/>
